@@ -1,4 +1,4 @@
-import {createContext} from "react"
+import {createContext} from "react";
 
-const defaultValue = {}
-export const MainContext = createContext(defaultValue)
+const defaultVal = {}
+export const MainContext = createContext(defaultVal);
