@@ -15,27 +15,16 @@ import {MainContext} from "./context/MainContext";
 import LoginView from "./features/login/loginView";
 import ProfileView from "./features/profile/profileView";
 import {Component} from "react";
+import MainContextProvider from "./context/MainContextProvider";
 
 
 class App extends Component {
-    state = {
-        profile: {},
-    }
-    setProfile = (profile) => {
-        console.log(profile);
-        this.setState({profile: profile});
-    };
-
     render() {
-        const {profile} = this.state;
         return (
-            <MainContext.Provider value={{
-                profile: profile,
-                setProfile: this.setProfile
-            }}>
+            <MainContextProvider>
                 <LoginView/>
                 <ProfileView/>
-            </MainContext.Provider>
+            </MainContextProvider>
         )
     }
 }
