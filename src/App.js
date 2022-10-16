@@ -11,14 +11,12 @@ Rekomendasi data yang bisa disimpan di context adalah data yang jarang sekali di
 - Location-specific data (like user language or locale)
  */
 
-import {MainContext} from "./context/MainContext";
 import LoginView from "./features/login/loginView";
 import ProfileView from "./features/profile/profileView";
 import {Component} from "react";
 import MainContextProvider from "./context/MainContextProvider";
-import { DepsProvider } from "./context/DependencyContext";
+import { DepsProvider } from "./context/DependencyContextProvider";
 import AuthenticationService from "./services/AuthenticationService";
-import CombinedContextProvider from "./features/login/CombinedContext";
 
 
 class App extends Component {
@@ -28,9 +26,7 @@ class App extends Component {
                 authenticationService: AuthenticationService(),
             }}>
                 <MainContextProvider>
-                    <CombinedContextProvider>
-                        <LoginView/>
-                    </CombinedContextProvider>
+                    <LoginView/>
                     <ProfileView/>
                 </MainContextProvider>
             </DepsProvider>

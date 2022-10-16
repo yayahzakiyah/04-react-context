@@ -1,14 +1,12 @@
 import {Component} from "react";
-import { CombinedContext } from "../../context/CombinedContext";
-import { DepContext } from "../../context/DependencyContextProvider";
-import {MainContext} from "../../context/MainContext";
+import withCombinedContext from "./WithCombinedContext";
 
 
 class LoginView extends Component {
     //menggunakan contextType hanya bisa consume 1 context
     // static contextType = MainContext;
 
-    static contextType = CombinedContext;
+    // static contextType = CombinedContext;
 
     // onLogin = async (mainCtx, depCtx) => {
     //     console.log(mainCtx);
@@ -22,8 +20,7 @@ class LoginView extends Component {
     // }
 
     onLogin = async () => {
-        console.log(this.context);
-        const {depContext, mainContext} = this.context
+        const {depContext, mainContext} = this.props
         try {
             const response = await depContext.services.authenticationService.authenticate('joko');
             mainContext.setProfile({name: response})
@@ -66,4 +63,4 @@ class LoginView extends Component {
 // Alternatif lain tanpa menggunakan static keyword
 // LoginView.contextType = MainContext;
 
-export default LoginView;
+export default withCombinedContext(LoginView);

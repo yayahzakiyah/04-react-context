@@ -1,3 +1,9 @@
-import { createContext } from "react";
+import { DepContext } from "./DependencyContext";
 
-export const DepContext = createContext({})
+export function DepsProvider({children, ...services}) {
+    return (
+        <DepContext.Provider value={services}>
+            {children}
+        </DepContext.Provider>
+    )
+}
