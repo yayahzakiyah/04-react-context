@@ -16,7 +16,7 @@ import LoginView from "./features/login/loginView";
 import ProfileView from "./features/profile/profileView";
 import {Component} from "react";
 import MainContextProvider from "./context/MainContextProvider";
-import { DepsProvider } from "./context/DependencyContext";
+import { DepsProvider } from "./context/DependencyContextProvider";
 import AuthenticationService from "./services/AuthenticationService";
 import CombinedContextProvider from "./features/login/CombinedContext";
 

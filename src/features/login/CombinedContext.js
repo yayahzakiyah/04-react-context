@@ -1,5 +1,5 @@
 import { CombinedContext } from "../../context/CombinedContext"
-import { DepContext } from "../../context/DependencyContextProvider"
+import { DepContext } from "../../context/DependencyContext"
 import { MainContext } from "../../context/MainContext"
 
 const CombinedContextProvider = (props) => {
